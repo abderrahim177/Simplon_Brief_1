@@ -10,14 +10,28 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=swords" />
 </head>
 <body >
-    <!-- Header -->
-    <header class="flex justify-between w-full p-4 items-center bg-white shadow sticky top-0 z-10">
-        <h1 class="text-3xl font-bold">Game<span class="text-blue-600">Vault</span></h1>
-        <nav class="flex gap-6 items-center"> 
-            <i class="fa-solid fa-circle-user text-3xl text-gray-600 cursor-pointer"></i>
-            <i class="fa-solid fa-bag-shopping text-3xl text-blue-500 cursor-pointer"></i>
-        </nav>
-    </header>
+   <!-- Header -->
+<header class="flex justify-between w-full p-4 items-center bg-white shadow sticky top-0 z-10">
+    <h1 class="text-3xl font-bold">Game<span class="text-blue-600">Vault</span></h1>
+    <nav class="flex gap-6 items-center"> 
+        <i class="fa-solid fa-circle-user text-3xl text-gray-600 cursor-pointer"></i>
+        <div class="relative cursor-pointer">
+            <i id="cart_icon" class="fa-solid fa-bag-shopping text-3xl text-blue-500"></i>
+            <!-- Counter badge -->
+            <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 rounded-full">0</span>
+        </div>
+    </nav>
+</header>
+<!-- Cart Modal -->
+<div id="cart_modal" class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm flex justify-center items-center z-50">
+    <div class="bg-white p-6 rounded-xl w-96">
+        <h2 class="text-xl font-bold mb-4">Mon Panier</h2>
+        <div id="cart-items" class="space-y-2 max-h-96 overflow-y-auto">
+            <!-- Products will be injected here -->
+        </div>
+        <button id="close_cart" class="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Fermer</button>
+    </div>
+</div>
     <!-- Main -->
     <main class="flex flex-col items-center mt-10 w-full ">
         <!-- Search -->
@@ -26,7 +40,7 @@
             
         <input  id="search_input"class="bg-gray-200 text-lg text-gray-700 placeholder:text-gray-500 rounded-md py-3 px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder=" 🔍 Search For Games . . .">
         </article>
-        <section class="w-[60%] m-auto flex justify-around mb-[20px]">
+        <section class="md:w-[60%] md:m-auto md:flex mb-[20px] md:mb-[20px] gap-2 md:justify-around">
          <button class="bg-blue-400 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
         All
         </button>   
@@ -38,9 +52,9 @@
         <i class="fa-solid fa-dragon mr-2"></i>RPG
         </button>
 
-        <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
-        <i class="fa-solid fa-crosshairs mr-2"></i>FPS
-        </button>
+        <!-- <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white"> -->
+        <!-- <i class="fa-solid fa-crosshairs mr-2"></i>FPS
+        </button> -->
 
         <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
         <i class="fa-solid fa-futbol mr-2"></i>Sport

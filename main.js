@@ -1,10 +1,12 @@
 import { games } from "./Data.js";
+import { cart_icon } from "./Panier.js";
+import { cart_modal } from "./Panier.js";
 let image_slider = document.getElementById("image_slider");
 let search_input = document.getElementById('search_input');
 image_slider.innerHTML = "";
 games.forEach((game) => {
     image_slider.innerHTML += `
-<div class="bg-white rounded-lg shadow-lg p-4">
+    <div class="bg-white rounded-lg shadow-lg p-4">
     <img src="${game.image}" class="w-full h-48 object-cover rounded-lg">
 
     <h2 class="text-xl font-bold mt-2">${game.title}</h2>
@@ -41,20 +43,11 @@ function FilterGames(value){
     }
 }
 
-search_input.onkeyup = () => {
+
+search_input.addEventListener("keyup", () => {
     let value = search_input.value;
     FilterGames(value);
-}
-
-function ADD_TO_CART(id){
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let selectedGame = games.find(g => g.id === id);
-    cart.push(selectedGame);
-    console.log(cart);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert (`${selectedGame.title} a été ajouté au panier !`);
-}
-
+});
 // let sliderImg = document.getElementById("slider_img");
 // let sliderTitle = document.getElementById("slider_title");
 // // Auto slider with fade effect
