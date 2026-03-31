@@ -26,19 +26,19 @@ function FilterGames(value){
     for (let i = 0 ; i <games.length ; i++){
         if (games[i].title.toLocaleLowerCase().includes(value.toLocaleLowerCase())){
             image_slider.innerHTML += `
-            <div class="bg-white rounded-lg shadow-lg p-4 mb-6 w-[100%] mx-auto flex flex-col md:flex-row gap-4">
-        <!-- Image -->
-        <img src="${games[i].image}" alt="${games[i].title}" class="w-full md:w-1/3 h-60 object-cover rounded-lg">
+    <div class="bg-white rounded-lg shadow-lg p-4">
+    <img src="${games[i].image}" class="w-full h-48 object-cover rounded-lg">
 
-        <!-- Details -->
-        <div class="flex flex-col justify-between md:w-2/3">
-            <h2 class="text-2xl font-bold text-black mb-2">${games[i].title}</h2>
-            <p class="text-gray-700 mb-2">${games[i].description}</p>
-            <p class="text-blue-600 font-semibold text-xl">$${games[i].price}</p>
-            <button onclick = "ADD_TO_CART(games[${i}])" class= "mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">Ajouter au panier</button>
-        </div>
-        </div>
-    `;
+    <h2 class="text-xl font-bold mt-2">${games[i].title}</h2>
+    <p class="text-gray-600 text-sm">${games[i].category}</p>
+    <p class="text-blue-600 font-semibold">$${games[i].price}</p>
+
+    <button onclick="ADD_TO_CART(${games[i].id})" 
+    class="mt-2 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+        Ajouter au panier
+    </button>
+</div>
+`;
         }
     }
 }
