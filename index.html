@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botique de jeux</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=swords" />
+</head>
+<body >
+    <!-- Header -->
+    <header class="flex justify-between w-full p-4 items-center bg-white shadow sticky top-0 z-10">
+        <h1 class="text-3xl font-bold">Game<span class="text-blue-600">Vault</span></h1>
+        <nav class="flex gap-6 items-center"> 
+            <i class="fa-solid fa-circle-user text-3xl text-gray-600 cursor-pointer"></i>
+            <i class="fa-solid fa-bag-shopping text-3xl text-blue-500 cursor-pointer"></i>
+        </nav>
+    </header>
+    <!-- Main -->
+    <main class="flex flex-col items-center mt-10 w-full ">
+        <!-- Search -->
+         
+        <article class="w-[90%] mb-10">
+            
+        <input  id="search_input"class="bg-gray-200 text-lg text-gray-700 placeholder:text-gray-500 rounded-md py-3 px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder=" 🔍 Search For Games . . .">
+        </article>
+        <section class="w-[60%] m-auto flex justify-around mb-[20px]">
+         <button class="bg-blue-400 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
+        All
+        </button>   
+        <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
+        <i class="fa-solid fa-fire mr-2"></i>Action
+        </button>
+
+        <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
+        <i class="fa-solid fa-dragon mr-2"></i>RPG
+        </button>
+
+        <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
+        <i class="fa-solid fa-crosshairs mr-2"></i>FPS
+        </button>
+
+        <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
+        <i class="fa-solid fa-futbol mr-2"></i>Sport
+        </button>
+         </section>
+        <!-- Slider -->
+        <section class="w-[90%] relative">
+            <section id="image_slider" 
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-[100%] mx-auto">
+        </section>
+        </section>
+    </main>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
