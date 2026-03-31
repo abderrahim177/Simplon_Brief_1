@@ -1,6 +1,6 @@
 import { games } from "./Data.js";
-import { cart_icon } from "./Panier.js";
-import { cart_modal } from "./Panier.js";
+import { displayGames } from "./FilterByCategory.js";
+
 let image_slider = document.getElementById("image_slider");
 let search_input = document.getElementById('search_input');
 image_slider.innerHTML = "";

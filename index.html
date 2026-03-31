@@ -40,28 +40,35 @@
             
         <input  id="search_input"class="bg-gray-200 text-lg text-gray-700 placeholder:text-gray-500 rounded-md py-3 px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder=" 🔍 Search For Games . . .">
         </article>
-        <section class="w-[90%] md:w-[60%] md:m-auto flex gap-2 justify-around mb-[20px] 
-            sticky top-[60px] bg-white md:z-10 md:py-2 md:shadow-sm
-            md:static md:shadow-none md:w-[60%] pl-[4px] pr-[4px]  w-full  m-auto md:m-auto flex md:flex mb-[20px] md:mb-[20px] gap-2 justify-around">
-         <button class="bg-blue-400  px-2 py-1 rounded hover:bg-blue-500 hover:text-white">
-        All
-        </button>   
-        <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
-        <i class="fa-solid fa-fire mr-2"></i>Action
-        </button>
+ <section class="
+w-[90%] md:w-[60%] md:mx-auto 
+flex flex-wrap gap-2 md:gap-4 justify-center md:justify-between mb-[20px]
 
-        <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
-        <i class="fa-solid fa-dragon mr-2"></i>RPG
-        </button>
+sticky top-[60px] z-20 bg-white py-2
+md:static md:bg-transparent md:shadow-none
+">
 
-        <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
-        <i class="fa-solid fa-crosshairs mr-2"></i>FPS
-        </button> 
+<button data-cat="all" class="button bg-blue-400 px-3 py-2 rounded hover:bg-blue-500 hover:text-white">
+All
+</button>   
 
-        <button class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
-        <i class="fa-solid fa-futbol mr-2"></i>Sport
-        </button>
-        </section>
+<button data-cat="Action" class="button bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
+Action
+</button>
+
+<button data-cat="RPG" class="button bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
+RPG
+</button>
+
+<button data-cat="FPS" class="button bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
+FPS
+</button> 
+
+<button data-cat="Sport" class="button bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
+Sport
+</button>
+
+</section>
         <!-- Slider -->
         <section class="w-[90%] relative">
             <section id="image_slider" 
