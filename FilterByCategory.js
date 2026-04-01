@@ -4,6 +4,17 @@ import { games } from "./Data.js";
 buttons.forEach(btn => {
     btn.addEventListener("click", () => {
 
+        
+        buttons.forEach(b => {
+            b.classList.remove("bg-blue-500", "text-white");
+            b.classList.add("bg-gray-200");
+        });
+
+        
+        btn.classList.remove("bg-gray-200");
+        btn.classList.add("bg-blue-500", "text-white");
+
+        
         const category = btn.getAttribute("data-cat");
 
         if(category === "all"){
@@ -27,10 +38,10 @@ export function displayGames(gamesToDisplay){
             <h2 class="text-xl font-bold mt-2">${game.title}</h2>
             <p class="text-gray-600 text-sm">${game.category}</p>
             <p class="text-blue-600 font-semibold">$${game.price}</p>
-
-            <button onclick="ADD_TO_CART(${game.id})" 
-            class="mt-2 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
-                Ajouter au panier
+            <p class = "message text-green-500 text-xl"></p>
+            <button 
+            class="btn_panier mt-2 w-[100%] bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+            Ajouter au panier
             </button>
         </div>
         `;
