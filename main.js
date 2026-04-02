@@ -55,18 +55,24 @@ function FilterGames(value){
     }
 }
 function setupCartButtons() {
-    
     let buttons = document.querySelectorAll('.btn_panier');
 
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             let id = button.getAttribute('data_id');
             AficherPanier(parseInt(id));
-            
+            // 🔥 Toastify هنا
+            Toastify({
+                text: "Produit ajouté ✅",
+                duration: 2000,
+                gravity: "top",
+                position: "center",
+                backgroundColor: "green",
+            }).showToast();
         });
     });
 }
-setupCartButtons();
+setupCartButtons() 
 
 search_input.addEventListener("keyup", () => {
     let value = search_input.value;
@@ -81,7 +87,6 @@ buttons.forEach((button) => {
         cart_count.innerHTML = 0;
         cart_count.innerHTML++;
         let message = button.parentElement.querySelector('.message');
-        message.innerHTML = "Produit ajouté au panier !";
         setTimeout(() => {
             message.innerHTML = "";
         }, 2000);

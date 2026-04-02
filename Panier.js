@@ -13,25 +13,37 @@ export function AficherPanier(id){
         cart.push(game);
         saveCart(cart);
         cart_count.innerHTML = cart.length;
-        cart_items.innerHTML += `
-        <div class = "flex items center gap-2 justify-between border-b bg-gray-100 py-2 px-4 rounded shadox-lg">
-        <div class = "flex gap-[10px]" >
-        <img src = "${game.image}" class = "w-[150px] h-[150px] object-cover rounded">
+     cart_items.innerHTML += `
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b bg-gray-100 p-3 rounded-lg shadow">
+
+    <!-- LEFT (image + info) -->
+    <div class="flex items-center gap-3 w-full md:w-auto">
+        <img src="${game.image}" 
+             class="w-20 h-20 md:w-24 md:h-24 object-cover rounded">
+
         <div>
-        <h3 class = "text-md font-bold">${game.title}</h3>
-        <p class="text-gray-600 text-md">${game.category}</p>
-        <p class = "text-blue-600 font-semibold">${game.price}</p>
+            <h3 class="text-sm md:text-md font-bold">${game.title}</h3>
+            <p class="text-gray-600 text-xs md:text-sm">${game.category}</p>
+            <p class="text-blue-600 font-semibold text-sm md:text-md">$${game.price}</p>
         </div>
+    </div>
+
+    <!-- RIGHT (controls) -->
+    <div class="flex items-center justify-between w-full md:w-auto gap-3">
+
+        <div class="flex items-center gap-2">
+            <button class="moins bg-gray-400 text-white text-sm md:text-lg px-3 py-1 rounded hover:bg-gray-500">-</button>
+            
+            <p class="counter text-sm md:text-lg font-semibold">1</p>
+            
+            <button class="plus bg-gray-400 text-white text-sm md:text-lg px-3 py-1 rounded hover:bg-gray-500">+</button>
         </div>
-        <div class = "flex items-center gap-2 pr-2">
-        <button class = "moins bg-gray-400 text-white text-lg py-1 px-4 rounded hover:bg-gray-500">-</button>
-        <p class = "counter inline-block mx-2">1</p>
-        <button class = "plus bg-gray-400 text-white text-lg py-1 px-3 rounded hover:bg-gray-500">+</button>
-        <i class="fa-solid fa-trash text-red-500 hover:text-red-700 cursor-pointer"></i>
-        </div>
-        </div>
-        <div class= "total text-lg font-bold"></div>
-        `;
+
+        <i class="fa-solid fa-trash text-red-500 hover:text-red-700 cursor-pointer text-lg"></i>
+    </div>
+
+</div>
+`;
     }
 }
 cart_items.addEventListener('click', (e) => {
