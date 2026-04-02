@@ -23,10 +23,10 @@ export function AficherPanier(id){
         <p class = "text-blue-600 font-semibold">${game.price}</p>
         </div>
         </div>
-        <div>
-        <button class = "moins bg-gray-400 text-white text-lg py-1 px-3 rounded hover:bg-gray-500">-</button>
+        <div class = "flex items-center gap-2 pr-2">
+        <button class = "moins bg-gray-400 text-white text-lg py-1 px-4 rounded hover:bg-gray-500">-</button>
         <p class = "counter inline-block mx-2">1</p>
-        <button class = "plusbg-gray-400 text-white text-lg py-1 px-3 rounded hover:bg-gray-500">+</button>
+        <button class = "plus bg-gray-400 text-white text-lg py-1 px-3 rounded hover:bg-gray-500">+</button>
         <i class="fa-solid fa-trash text-red-500 hover:text-red-700 cursor-pointer"></i>
         </div>
         </div>
@@ -34,31 +34,26 @@ export function AficherPanier(id){
         `;
     }
 }
-let moinsButtons = document.querySelectorAll('.moins');
-moinsButtons.forEach(btn => {
-    btn.addEventListener('click' , () => {
-        counterElements.forEach(count => {
-            let value = parseInt(count.innerHTML);
-            if(value > 1){
-                count.innerHTML = value -1;
-            }
-        })
-    })
-})
+cart_items.addEventListener('click', (e) => {
 
-let plusButtons = document.querySelectorAll('.plus');
-plusButtons.forEach(btn => {
-    btn.addEventListener('click' , () => {
-        counterElements.forEach(count => {
-            let value = parseInt(count.innerHTML);
-            if(value < 10){
-                count.innerHTML = value +1;
-            }
-        })
-    })
-})
-let counterElements = document.querySelectorAll('.counter');
+    // PLUS
+    if (e.target.classList.contains('plus')) {
+        let counter = e.target.parentElement.querySelector('.counter');
+        let value = parseInt(counter.innerHTML);
+        counter.innerHTML = value + 1;
+    }
 
+    // MOINS
+    if (e.target.classList.contains('moins')) {
+        let counter = e.target.parentElement.querySelector('.counter');
+        let value = parseInt(counter.innerHTML);
+
+        if (value > 1) {
+            counter.innerHTML = value - 1;
+        }
+    }
+
+});
 
 let totalElement = document.querySelector('.total');
 function TotalPrice(){

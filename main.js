@@ -66,7 +66,6 @@ function setupCartButtons() {
         });
     });
 }
-
 setupCartButtons();
 
 search_input.addEventListener("keyup", () => {
