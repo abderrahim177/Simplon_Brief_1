@@ -130,7 +130,6 @@ function updateTotal() {
 
         total += price * quantity;
     });
-
     document.getElementById('cart_total').innerText = total.toFixed(2);
 }
 updateTotal()
