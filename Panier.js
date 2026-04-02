@@ -1,14 +1,75 @@
-
+import { games } from "./Data.js";
+import { getCart } from "./main.js";
+import { saveCart } from "./main.js";
 let cart_icon = document.getElementById('cart_icon');
 let cart_modal = document.getElementById('cart_modal');
 let close_cart = document.getElementById('close_cart');
 let cart_count = document.getElementById('cart_count');
-let btn_panier = document.getElementById('btn_panier');
+let cart_items = document.getElementById('cart_items');
+export function AficherPanier(id){
+    let cart = getCart();
+    let game = games.find(g => g.id === id);
+    if (game){
+        cart.push(game);
+        saveCart(cart);
+        cart_count.innerHTML = cart.length;
+        cart_items.innerHTML += `
+        <div class = "flex items center gap-2 justify-between border-b bg-gray-100 py-2 px-4 rounded shadox-lg">
+        <div class = "flex gap-[10px]" >
+        <img src = "${game.image}" class = "w-[150px] h-[150px] object-cover rounded">
+        <div>
+        <h3 class = "text-md font-bold">${game.title}</h3>
+        <p class="text-gray-600 text-md">${game.category}</p>
+        <p class = "text-blue-600 font-semibold">${game.price}</p>
+        </div>
+        </div>
+        <div>
+        <button class = "moins bg-gray-400 text-white text-lg py-1 px-3 rounded hover:bg-gray-500">-</button>
+        <p class = "counter inline-block mx-2">1</p>
+        <button class = "plusbg-gray-400 text-white text-lg py-1 px-3 rounded hover:bg-gray-500">+</button>
+        <i class="fa-solid fa-trash text-red-500 hover:text-red-700 cursor-pointer"></i>
+        </div>
+        </div>
+        <div class= "total text-lg font-bold"></div>
+        `;
+    }
+}
+let moinsButtons = document.querySelectorAll('.moins');
+moinsButtons.forEach(btn => {
+    btn.addEventListener('click' , () => {
+        counterElements.forEach(count => {
+            let value = parseInt(count.innerHTML);
+            if(value > 1){
+                count.innerHTML = value -1;
+            }
+        })
+    })
+})
 
+let plusButtons = document.querySelectorAll('.plus');
+plusButtons.forEach(btn => {
+    btn.addEventListener('click' , () => {
+        counterElements.forEach(count => {
+            let value = parseInt(count.innerHTML);
+            if(value < 10){
+                count.innerHTML = value +1;
+            }
+        })
+    })
+})
+let counterElements = document.querySelectorAll('.counter');
+
+
+let totalElement = document.querySelector('.total');
+function TotalPrice(){
+    let cart = getCart();
+    let total = cart.reduce((sum , game) => sum + game.price,0);
+    totalElement.innerHTML = `Total : ${total}`;
+}
 export { cart_icon, cart_modal, close_cart, cart_count };
 cart_icon.onclick = function() {
     cart_modal.classList.remove('hidden');
-}
+} 
 close_cart.onclick = function(){
     cart_modal.classList.add('hidden');
 }
