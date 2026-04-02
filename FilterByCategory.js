@@ -9,12 +9,9 @@ buttons.forEach(btn => {
             b.classList.remove("bg-blue-500", "text-white");
             b.classList.add("bg-gray-200");
         });
-
-        
         btn.classList.remove("bg-gray-200");
         btn.classList.add("bg-blue-500", "text-white");
 
-        
         const category = btn.getAttribute("data-cat");
 
         if(category === "all"){
