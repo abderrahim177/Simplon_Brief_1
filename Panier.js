@@ -119,15 +119,11 @@ getCart().length > 0 && loadCart();
 updateTotal();
 function updateTotal() {
     let total = 0;
-
     let items = cart_items.querySelectorAll('.flex.flex-col');
-
     items.forEach(item => {
         let priceText = item.querySelector('.text-blue-600').innerText;
         let price = parseFloat(priceText.replace('$', ''));
-
         let quantity = parseInt(item.querySelector('.counter').innerText);
-
         total += price * quantity;
     });
     document.getElementById('cart_total').innerText = total.toFixed(2);
