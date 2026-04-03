@@ -26,9 +26,9 @@
      <i class="fa-solid fa-gamepad text-5xl text-blue-600"></i>
     </div>
     <nav class="flex gap-6 items-center"> 
-        <button id="dark_mode_toggle" class="bg-gray-700 text-lg text-gray-200 placeholder:text-gray-200 rounded-2xl shadow-xl py-1 px-1 w-[80px] focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <!-- <button id="dark_mode_toggle" class="bg-gray-700 text-lg text-gray-200 placeholder:text-gray-200 rounded-2xl shadow-xl py-1 px-1 w-[80px] focus:outline-none focus:ring-2 focus:ring-blue-500">
                 🌙 Dark
-        </button>
+        </button> -->
         <i class="fa-solid fa-circle-user text-3xl text-gray-600 cursor-pointer"></i>
         <div class="relative cursor-pointer">
             <i id="cart_icon" class="fa-solid fa-bag-shopping text-3xl text-blue-500"></i>
@@ -62,43 +62,46 @@
     <main class="flex flex-col items-center mt-10 w-full ">
         <!-- Search -->
          
-        <article class="w-[90%] mb-10">
-            
-        <input  id="search_input"class="bg-gray-200 text-lg text-gray-700 placeholder:text-gray-500 rounded-md py-3 px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder=" 🔍 Search For Games . . .">
-        </article>
-        <section class="
-        w-[100%] md:w-[60%] md:mx-auto 
-        flex flex-wrap gap-2 md:gap-4 justify-center md:justify-between mb-[20px]
-        sticky top-[60px]  bg-white py-2
-        md:static md:bg-transparent md:shadow-none
-        ">
-        <button data-cat="all" class="button flex items-center gap-2 bg-blue-400 px-3 py-2 rounded hover:bg-blue-500 hover:text-white">
-        🧩 <span>All</span>
-        </button>   
+        <article class="w-[90%] mb-10 relative">
+    <input id="search_input" class="bg-gray-200 text-lg text-gray-700 placeholder:text-gray-500 rounded-md py-3 px-4 w-full md:w-[80%] md:ml-[9rem] focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder=" 🔍 Search For Games . . .">
+</article>
 
-        <button data-cat="Action" class="button flex items-center gap-2 bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
-        ⚔️ <span>Action</span>
-        </button>
+<!-- Desktop sidebar -->
+<section class="mb-4 flex md:fixed md:top-[87px] md:left-0 md:flex-col justify-between items-center w-[80%] gap-1 md:gap-2 md:w-48 md:h-full md:transition-all md:duration-300 md:bg-white/30 md:backdrop-blur-md md:shadow-lg md:rounded-r-2xl md:p-2 md:z-20 md:group md:overflow-hidden overflow-x-auto no-scrollbar">
+    
+    <h3 class="hidden md:block text-[20px] font-bold mb-2 flex items-center gap-2 group">
+        <i class="fa fa-list transition-opacity"></i>
+        <span>Catégories</span>
+    </h3>
 
-        <button data-cat="RPG" class="button flex items-center gap-2 bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
-        🧙‍♂️ <span>RPG</span>
-        </button>
+    <button data-cat="all" class="bg-gray-200 md:bg-white button flex items-center md:w-full gap-2 px-3 py-2 rounded hover:bg-blue-500 text-black transition-all">
+        <p class="text-[25px]">🧩</p> <span class="md:text-[18px] font-semibold overflow-hidden whitespace-nowrap">All</span>
+    </button>
 
-        <button data-cat="FPS" class="button flex items-center gap-2 bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
-        🔫 <span>FPS</span>
-        </button> 
+    <button data-cat="Action" class="bg-gray-200 md:bg-white button flex items-center md:w-full gap-2 px-3 py-2 rounded hover:bg-blue-500 text-black transition-all">
+        <p class="text-[25px]">⚔️</p> <span class="md:text-[18px] font-semibold overflow-hidden whitespace-nowrap">Action</span>
+    </button>
 
-        <button data-cat="Sport" class="button flex items-center gap-2 bg-gray-200 px-4 py-2 rounded hover:bg-blue-500 hover:text-white">
-        ⚽ <span>Sport</span>
-        </button>
+    <button data-cat="RPG" class="bg-gray-200 md:bg-white button flex items-center md:w-full gap-2 px-3 py-2 rounded hover:bg-blue-500 text-black transition-all">
+        <p class="text-[25px]">🧙‍♂️</p> <span class="md:text-[18px] font-semibold overflow-hidden whitespace-nowrap">RPG</span>
+    </button>
+
+    <button data-cat="FPS" class="bg-gray-200 md:bg-white button flex items-center md:w-full gap-2 px-3 py-2 rounded hover:bg-blue-500 text-black transition-all">
+        <p class="text-[25px]">🔫</p> <span class="md:text-[18px] font-semibold overflow-hidden whitespace-nowrap">FPS</span>
+    </button>
+
+    <button data-cat="Sport" class="bg-gray-200 md:bg-white button flex items-center md:w-full gap-2 px-3 py-2 rounded hover:bg-blue-500 text-black transition-all">
+        <p class="text-[25px]">⚽</p> <span class="md:text-[18px] font-semibold overflow-hidden whitespace-nowrap">Sport</span>
+    </button>
 
 </section>
         <!-- Slider -->
         <section class="w-[90%] relative">
-            <section id="image_slider" 
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-[100%] mx-auto">
+          <section id="image_slider" 
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:w-[calc(100%-4rem)] md:ml-[8rem]  md:mx-auto transition-all duration-300">
         </section>
         </section>
+      
     </main>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script type="module" src="main.js"></script>

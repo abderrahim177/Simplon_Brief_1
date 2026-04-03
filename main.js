@@ -21,7 +21,7 @@ export function saveCart(cart) {
 image_slider.innerHTML = "";
 games.forEach((game) => {
     image_slider.innerHTML += `
-    <div class="bg-white rounded-lg shadow-lg p-4 transition duration-500 ease-in-out hover:scale-95  hover:translate-y-1 hover:shadow-inner bg-white rounded-lg shadow-lg p-4">
+    <div class="bg-white rounded-lg shadow-lg p-4 transition duration-500 ease-in-out hover:scale-10 cursor-pointer  hover:translate-y-1 hover:shadow-inner bg-white rounded-lg shadow-lg p-4">
     <img src="${game.image}" class="w-full h-48 object-cover rounded-lg">
 
     <h2 class="text-xl font-bold mt-2">${game.title}</h2>
@@ -64,6 +64,7 @@ search_input.addEventListener("keyup", () => {
     let value = search_input.value;
     FilterGames(value);
     setupCartButtons();
+    AficherPanier();
 });
 
 //  cart_count.innerHTML = 0;

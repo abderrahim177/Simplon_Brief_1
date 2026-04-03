@@ -1,16 +1,17 @@
 let buttons = document.querySelectorAll('.button');
 let image_slider = document.getElementById("image_slider");
 import { games } from "./Data.js";
+import { AficherPanier } from "./Panier.js";
 buttons.forEach(btn => {
     btn.addEventListener("click", () => {
 
         
-        buttons.forEach(b => {
-            b.classList.remove("bg-blue-500", "text-white");
-            b.classList.add("bg-gray-200");
-        });
-        btn.classList.remove("bg-gray-200");
-        btn.classList.add("bg-blue-500", "text-white");
+        // buttons.forEach(b => {
+        //     b.classList.remove("bg-blue-500", "text-white");
+        //     b.classList.add("bg-gray-200");
+        // });
+        // btn.classList.remove("bg-gray-200");
+        // btn.classList.add("bg-blue-500", "text-white");
 
         const category = btn.getAttribute("data-cat");
 
@@ -19,6 +20,7 @@ buttons.forEach(btn => {
         } else {
             const filtered = games.filter(game => game.category === category);
             displayGames(filtered);
+            AficherPanier();
         }
 
     });
