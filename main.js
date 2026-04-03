@@ -4,6 +4,10 @@ import { displayGames } from "./FilterByCategory.js";
 import { cart_modal } from "./Panier.js";
 import { cart_icon } from "./Panier.js";
 import { close_cart } from "./Panier.js";
+// import { initDarkMode } from "./darkmode.js";
+// document.addEventListener("DOMContentLoaded", () => {
+//   initDarkMode();
+// });
 let image_slider = document.getElementById("image_slider");
 let search_input = document.getElementById('search_input');
 let cart_count = document.getElementById('cart_count');
@@ -72,13 +76,12 @@ function setupCartButtons() {
             let id = button.getAttribute('data_id');
             AficherPanier(parseInt(id));
             //  Toastify 
-            Toastify({
-                text: "Produit ajouté ✅",
-                duration: 2000,
-                gravity: "top",
-                position: "center",
-                backgroundColor: "green",
-            }).showToast();
+           iziToast.success({
+            title: 'OK',
+            message: 'Produit ajouté ✅',
+            position: 'topCenter',
+            timeout: 1000,
+        });
         });
     });
 }

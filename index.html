@@ -5,18 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botique de jeux</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script>
+    tailwind.config = { darkMode: 'class' }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="ThemMode.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=swords" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body >
    <!-- Header -->
-<header class="flex justify-between w-full p-4 items-center bg-white shadow sticky top-0 z-10">
-    <h1 class="text-3xl font-bold ">Game<span class="text-blue-600">Vault</span></h1>
+<header class="flex justify-between w-full p-4 items-center bg-white shadow sticky top-0 z-10 backdrop-blur-lg  ">
+    <div class="flex items-center gap-2">
+    <h1 class="text-3xl font-bold text-gray-600">Game<span class="text-blue-600">Vault</span></h1>
+     <i class="fa-solid fa-gamepad text-5xl text-blue-600"></i>
+    </div>
     <nav class="flex gap-6 items-center"> 
-        
         <button id="dark_mode_toggle" class="bg-gray-700 text-lg text-gray-200 placeholder:text-gray-200 rounded-2xl shadow-xl py-1 px-1 w-[80px] focus:outline-none focus:ring-2 focus:ring-blue-500">
                 🌙 Dark
         </button>
