@@ -76,6 +76,23 @@ cart_items.addEventListener('click', (e) => {
         updateTotal();
     }
 });
+let commander = document.getElementById('commander');
+commander.addEventListener('click' , () => {
+    Commander();
+    Toastify ({
+        text: "Merci pour votre Commande !",
+        duration: 2000,
+        gravity: "top",
+        position: "center",
+        backgroundColor : "orange",
+    }).showToast();
+})
+function Commander(){
+    cart_items.innerHTML = "";
+    localStorage.removeItem('cart');
+    cart_count.innerHTML = 0;
+    updateTotal();
+}
 export { cart_icon, cart_modal, close_cart, cart_count };
 cart_icon.onclick = function() {
     cart_modal.classList.remove('hidden');
