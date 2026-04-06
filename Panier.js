@@ -7,21 +7,18 @@ let cart_modal = document.getElementById('cart_modal');
 let close_cart = document.getElementById('close_cart');
 let cart_count = document.getElementById('cart_count');
 let cart_items = document.getElementById('cart_items');
-
 cart_count.innerHTML = getCart().length;
-
 export function AficherPanier(id){
     let cart = getCart();
     let game = games.find(g => g.id === id);
+    if(!game) return;
     let exxisting = cart.find(e => e.id === id);
-
-    if (exxisting){
-        return;
-    } else {
-        cart.push(game);
+    if (exxisting) return
+    else {
+        let updatedCart = [...cart, {...game, quantity:1}]
+        cart = updatedCart;
         saveCart(cart);
-        cart_count.innerHTML = cart.length;
-
+        updateNumber()
         cart_items.innerHTML += `
 <div class="cart-item flex flex-col md:flex-row items-center justify-between gap-4 border-b bg-gray-100 p-3 rounded-lg shadow">
     <div class="flex items-center gap-3 w-full md:w-auto">
@@ -48,6 +45,11 @@ export function AficherPanier(id){
     updateTotal();
 }
 
+function updateNumber(){
+    const cartCount = document.getElementById("cart_count")
+    cartCount.textContent = getCart().length
+}
+
 cart_items.addEventListener('click', (e) => {
 
     // PLUS
@@ -67,8 +69,6 @@ cart_items.addEventListener('click', (e) => {
         }
         updateTotal();
     }
-    
-
     // DELETE
     if (e.target.classList.contains('delete_item')) {
         let id = parseInt(e.target.getAttribute('data-id'));
@@ -126,15 +126,14 @@ function CloseCart(){
         cart_modal.classList.add('hidden');
     }
 }
-
 close_cart.onclick = function(){
     cart_modal.classList.add('hidden');
 }
-
 function loadCart() {
     let cart = getCart();
     cart_items.innerHTML = "";
     cart.forEach(game => {
+        if(!game) return ;
         cart_items.innerHTML += `
 <div class="cart-item flex flex-col md:flex-row items-center justify-between gap-4 border-b bg-gray-100 p-3 rounded-lg shadow">
 

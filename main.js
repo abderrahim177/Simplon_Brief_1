@@ -50,7 +50,7 @@ function FilterGames(value){
         <p class="text-blue-600 font-semibold">$${games[i].price}</p>
         <p class = "message text-green-500 text-xl"></p>
     <button 
-    data_id = "${games[i].id}"
+    
         class="btn_panier mt-2 w-[100%] bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
             Ajouter au panier
         </button>
@@ -64,32 +64,30 @@ search_input.addEventListener("keyup", () => {
     let value = search_input.value;
     FilterGames(value);
     setupCartButtons();
-    AficherPanier();
 });
-
 //  cart_count.innerHTML = 0;
-
 function setupCartButtons() {
     let buttons = document.querySelectorAll('.btn_panier');
-//    cart_count.innerHTML = ++
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             let id = button.getAttribute('data_id');
-            AficherPanier(parseInt(id));
-            //  Toastify 
+            if(id === null) return;
+            else{
+                AficherPanier(parseInt(id));
            iziToast.success({
             title: 'OK',
             message: 'Produit ajouté ✅',
             position: 'topCenter',
             timeout: 1000,
         });
+            }
+            
         });
     });
 }
 setupCartButtons() 
 
 const btn = document.getElementById("scrollTopBtn");
-
   window.addEventListener("scroll", () => {
     if (window.scrollY > 200) {
       btn.classList.remove("hidden");
@@ -100,7 +98,7 @@ const btn = document.getElementById("scrollTopBtn");
   btn.addEventListener("click", () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   });
 
