@@ -4,8 +4,6 @@ import { games } from "./Data.js";
 import { AficherPanier } from "./Panier.js";
 buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-
-        
         // buttons.forEach(b => {
         //     b.classList.remove("bg-blue-500", "text-white");
         //     b.classList.add("bg-gray-200");
@@ -14,7 +12,6 @@ buttons.forEach(btn => {
         // btn.classList.add("bg-blue-500", "text-white");
 
         const category = btn.getAttribute("data-cat");
-
         if(category === "all"){
             displayGames(games);
         } else {
@@ -22,13 +19,10 @@ buttons.forEach(btn => {
             displayGames(filtered);
             AficherPanier();
         }
-
     });
 });
-
 export function displayGames(gamesToDisplay){
     image_slider.innerHTML = "";
-
     gamesToDisplay.forEach(game => {
         image_slider.innerHTML += `
         <div class="bg-white rounded-lg shadow-lg p-4">
