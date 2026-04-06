@@ -67,6 +67,7 @@ cart_items.addEventListener('click', (e) => {
         }
         updateTotal();
     }
+    
 
     // DELETE
     if (e.target.classList.contains('delete_item')) {
